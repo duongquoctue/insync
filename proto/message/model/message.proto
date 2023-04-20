@@ -1,0 +1,9 @@
+syntax = "proto3";
+package msg.message.model;
+option go_package = "github.com/duongquoctue/insync/pkg/proto/message/model;insync_model";
+
+message Message {
+  int64 author_id = 1;
+  int64 channel_id = 2;
+  string data = 3;
+}

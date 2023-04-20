@@ -1,0 +1,8 @@
+{
+    "user": "root",
+    "password": "123456",
+    "database": "insync",
+    "address": "127.0.0.1",
+    "network_type": "tcp"
+  }
+  

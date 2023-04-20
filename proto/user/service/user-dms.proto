@@ -1,0 +1,36 @@
+syntax = "proto3";
+package msg.user.service;
+option go_package = "github.com/duongquoctue/insync/pkg/proto/user/service;insync_service";
+
+import "proto/user/model/user.proto";
+import "proto/common/model/status.proto";
+
+service User {
+    rpc GetSingle (QueryRequest) returns (msg.user.model.User);
+    rpc GetBulk (QueryRequest) returns (msg.user.model.User);
+    rpc Create (CreateRequest) returns (msg.user.model.User);
+    rpc Update (UpdateRequest) returns (msg.user.model.User);
+    rpc Delete (DeleteRequest) returns (msg.common.model.Status);
+}
+
+message QueryRequest {
+    int64 id = 1;
+    repeated int64 ids = 2;
+}
+
+message CreateRequest {
+    msg.user.model.User user = 1;
+}
+
+message UpdateRequest {
+    msg.user.model.User user = 1;
+    repeated string fields = 2;
+}
+
+message DeleteRequest {
+    msg.user.model.User user = 1;
+}
+
+message BulkResponse {
+    repeated msg.user.model.User users = 1;
+}

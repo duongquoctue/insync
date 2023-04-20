@@ -1,0 +1,14 @@
+syntax = "proto3";
+package msg.message.service;
+option go_package = "github.com/duongquoctue/insync/pkg/proto/message/service;insync_service";
+
+import "proto/message/model/message.proto";
+import "proto/common/model/status.proto";
+
+service Message {
+    rpc Send (MessageSendRequest) returns (msg.common.model.Status);
+}
+
+message MessageSendRequest {
+    msg.message.model.Message message = 1;
+}
