@@ -6,7 +6,6 @@ import (
 
 	"github.com/duongquoctue/insync/core/corehttp"
 	websocket "github.com/duongquoctue/insync/core/corews"
-	"github.com/duongquoctue/insync/core/logger"
 )
 
 type SubcribeHandler struct {
@@ -14,8 +13,6 @@ type SubcribeHandler struct {
 }
 
 func (h *SubcribeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	log := logger.NewLoggerCtx(r.Context())
-
 	wsConn, err := websocket.NewConnection(w, r)
 	if err != nil {
 		corehttp.RespondErr(w, http.StatusForbidden, err.Error())
